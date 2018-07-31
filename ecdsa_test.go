@@ -65,7 +65,7 @@ func TestECDSASign(t *testing.T) {
 			method := GetSigningMethod(data.alg)
 			sig, err := method.Sign(strings.Join(parts[0:2], "."), ecdsaKey)
 			assert.Nil(t, err)
-			assert.NotEqual(t, sig, parts[2])
+			assert.NotEqual(t, parts[2], sig)
 		}
 	}
 }

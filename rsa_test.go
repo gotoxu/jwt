@@ -57,7 +57,7 @@ func TestRSASign(t *testing.T) {
 			method := GetSigningMethod(data.alg)
 			sig, err := method.Sign(strings.Join(parts[0:2], "."), key)
 			assert.Nil(t, err)
-			assert.Equal(t, sig, parts[2])
+			assert.Equal(t, parts[2], sig)
 		}
 	}
 }

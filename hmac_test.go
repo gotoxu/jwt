@@ -54,7 +54,7 @@ func TestHMACSign(t *testing.T) {
 			m := GetSigningMethod(data.alg)
 			sig, err := m.Sign(strings.Join(parts[0:2], "."), hmacTestKey)
 			assert.Nil(t, err)
-			assert.Equal(t, sig, parts[2])
+			assert.Equal(t, parts[2], sig)
 		}
 	}
 }

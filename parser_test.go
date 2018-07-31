@@ -253,7 +253,7 @@ func TestParser_Parse(t *testing.T) {
 			token, err = parser.ParseWithClaims(data.tokenString, StandardClaims{}, data.keyfunc)
 		}
 
-		assert.Equal(t, token.Claims, data.claims)
+		assert.Equal(t, data.claims, token.Claims)
 		if data.valid {
 			assert.Nil(t, err)
 		}
