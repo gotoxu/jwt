@@ -235,28 +235,39 @@ func Nil(t Fataler, v interface{}, a ...interface{}) {
 		sp = "\n"
 	}
 
-	if v != nil {
-		if _, ok := v.(error); ok {
-			fatal(cond{
-				Fataler:    t,
-				Format:     `unexpected error: %s`,
-				FormatArgs: []interface{}{v},
-				Extra:      a,
-			})
-		} else {
-			fatal(cond{
-				Fataler:    t,
-				Format:     "expected nil value but got:%s%s",
-				FormatArgs: []interface{}{sp, vs},
-				Extra:      a,
-			})
-		}
+	if v == nil {
+		return
+	}
+	if reflect.ValueOf(v).IsNil() {
+		return
+	}
+
+	if _, ok := v.(error); ok {
+		fatal(cond{
+			Fataler:    t,
+			Format:     `unexpected error: %s`,
+			FormatArgs: []interface{}{v},
+			Extra:      a,
+		})
+	} else {
+		fatal(cond{
+			Fataler:    t,
+			Format:     "expected nil value but got:%s%s",
+			FormatArgs: []interface{}{sp, vs},
+			Extra:      a,
+		})
 	}
 }
 
 // NotNil 判断 v 是否不等于 nil
 func NotNil(t Fataler, v interface{}, a ...interface{}) {
 	if v == nil {
+		fatal(cond{
+			Fataler: t,
+			Format:  "expected a value but got nil",
+			Extra:   a,
+		})
+	} else if reflect.ValueOf(v).IsNil() {
 		fatal(cond{
 			Fataler: t,
 			Format:  "expected a value but got nil",

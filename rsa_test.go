@@ -5,7 +5,6 @@ import (
 	"strings"
 	"testing"
 
-	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gotoxu/assert"
 )
 
@@ -115,7 +114,7 @@ func TestRSAKeyParsing(t *testing.T) {
 
 func BenchmarkRS256Signing(b *testing.B) {
 	key, _ := ioutil.ReadFile("test/sample_key")
-	parsedKey, err := jwt.ParseRSAPrivateKeyFromPEM(key)
+	parsedKey, err := ParseRSAPrivateKeyFromPEM(key)
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -125,7 +124,7 @@ func BenchmarkRS256Signing(b *testing.B) {
 
 func BenchmarkRS384Signing(b *testing.B) {
 	key, _ := ioutil.ReadFile("test/sample_key")
-	parsedKey, err := jwt.ParseRSAPrivateKeyFromPEM(key)
+	parsedKey, err := ParseRSAPrivateKeyFromPEM(key)
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -135,7 +134,7 @@ func BenchmarkRS384Signing(b *testing.B) {
 
 func BenchmarkRS512Signing(b *testing.B) {
 	key, _ := ioutil.ReadFile("test/sample_key")
-	parsedKey, err := jwt.ParseRSAPrivateKeyFromPEM(key)
+	parsedKey, err := ParseRSAPrivateKeyFromPEM(key)
 	if err != nil {
 		b.Fatal(err)
 	}
