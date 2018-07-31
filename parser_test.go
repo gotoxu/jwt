@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gotoxu/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var errKeyFunc = fmt.Errorf("error loading key")
@@ -253,7 +253,7 @@ func TestParser_Parse(t *testing.T) {
 			token, err = parser.ParseWithClaims(data.tokenString, StandardClaims{}, data.keyfunc)
 		}
 
-		assert.DeepEqual(t, token.Claims, data.claims)
+		assert.Equal(t, token.Claims, data.claims)
 		if data.valid {
 			assert.Nil(t, err)
 		}

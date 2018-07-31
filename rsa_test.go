@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gotoxu/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var rsaTestData = []struct {
@@ -57,7 +57,7 @@ func TestRSASign(t *testing.T) {
 			method := GetSigningMethod(data.alg)
 			sig, err := method.Sign(strings.Join(parts[0:2], "."), key)
 			assert.Nil(t, err)
-			assert.DeepEqual(t, sig, parts[2])
+			assert.Equal(t, sig, parts[2])
 		}
 	}
 }

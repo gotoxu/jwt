@@ -26,8 +26,8 @@
 
 
 [[constraint]]
-  name = "github.com/gotoxu/assert"
-  version = "1.1.0"
+  name = "github.com/stretchr/testify"
+  version = "1.2.2"
 
 [prune]
   go-tests = true

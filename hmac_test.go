@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gotoxu/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var hmacTestData = []struct {
@@ -54,7 +54,7 @@ func TestHMACSign(t *testing.T) {
 			m := GetSigningMethod(data.alg)
 			sig, err := m.Sign(strings.Join(parts[0:2], "."), hmacTestKey)
 			assert.Nil(t, err)
-			assert.DeepEqual(t, sig, parts[2])
+			assert.Equal(t, sig, parts[2])
 		}
 	}
 }

@@ -8,14 +8,20 @@
   version = "v1.1.0"
 
 [[projects]]
-  name = "github.com/gotoxu/assert"
-  packages = ["."]
-  revision = "14269c482f0950fe38a41b49c7884f41c4efcc6f"
-  version = "1.1"
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
+  version = "v1.2.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "adc324c59bfe673fe12edc6adb48316199cef17d01db7e99b0c566eb36a626b6"
+  inputs-digest = "9850c6dc685fb759558c37c0d83f4a4d0918de2cce35d9d1448bab84f16f63a2"
   solver-name = "gps-cdcl"
   solver-version = 1
